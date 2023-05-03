@@ -19,7 +19,11 @@ class HelloController extends AbstractController
     public function index(int $limit): Response
     {
 
-        return $this->render('hello/index.html.twig', ['messages' => array_slice($this->messages, 0, $limit)]);
+        return $this->render('hello/index.html.twig',
+            [
+                'messages' => $this->messages,
+                'limit' => $limit
+            ]);
     }
 
     #[Route('messages/{id<\d+>}', name: 'app_show_one')]
