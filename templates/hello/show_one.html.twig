@@ -3,7 +3,8 @@
 <div>The current messages is:</div>
 <div>
     <b>
-        {{ message }}
+        <div>{{ message.message }}</div>
+        {{ include('hello/_message.html.twig', {message: message}) }}
     </b>
 </div>
 
