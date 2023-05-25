@@ -14,6 +14,7 @@ class MicroPostController extends AbstractController
     #[Route('/micro-post', name: 'app_micro_post')]
     public function index(MicroPostRepository $posts): Response
     {
+        dd($posts->findAll());
 //        $microPost = new MicroPost();
 //        $microPost->setTitle('Post from controller');
 //        $microPost->setText('Post from controller');
@@ -25,5 +26,11 @@ class MicroPostController extends AbstractController
         return $this->render('micro_post/index.html.twig', [
             'controller_name' => 'MicroPostController',
         ]);
+    }
+
+    #[Route('/micro-post/{post}', name: 'app_micropost_show')]
+    public function showOne(MicroPost $post): Response
+    {
+        dd($post);
     }
 }
