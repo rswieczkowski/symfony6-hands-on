@@ -22,7 +22,7 @@ class MicroPostController extends AbstractController
         ]);
     }
 
-    #[Route('/micro-post/{post}', name: 'app_micropost_show')]
+    #[Route('/micro-post/{post}', name: 'app_micro_post_show')]
     public function showOne(MicroPost $post): Response
     {
         return $this->render('micro_post/show.html.twig', [
@@ -30,7 +30,7 @@ class MicroPostController extends AbstractController
         ]);
     }
 
-    #[Route('/micro-post/add', name: 'app_micropost_add', priority: 2)]
+    #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
     public function add(Request $request, MicroPostRepository $posts): Response
     {
         $microPost = new MicroPost();
@@ -57,7 +57,7 @@ class MicroPostController extends AbstractController
         );
     }
 
-    #[Route('/micro-post/{post}/edit', name: 'app_micropost_edit')]
+    #[Route('/micro-post/{post}/edit', name: 'app_micro_post_edit')]
     public function edit(Micropost $post, Request $request, MicroPostRepository $posts): Response
     {
          $form = $this->createForm(MicroPostType::class, $post);
@@ -75,7 +75,7 @@ class MicroPostController extends AbstractController
         }
 
         return $this->renderForm(
-            'micro_post/add.html.twig',
+            'micro_post/edit.html.twig',
             [
                 'form' => $form
             ]
